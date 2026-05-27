@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simetria — Brindes Personalizados ao Vivo para Casamentos</title>
+  <meta name="description" content="Personalização em couro ao vivo no seu casamento. Cada convidado vê o próprio nome ser gravado na hora e leva para casa algo que vai guardar para sempre." />
+
+  <!-- Meta Pixel Code -->
+  <!-- COLE SEU PIXEL DA META AQUI -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){...}
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --green:        #2C5940;
+      --green-dark:   #1E3F2C;
+      --green-mid:    #3A7050;
+      --green-soft:   #EBF2EE;
+      --gold:         #C59A65;
+      --gold-dark:    #A87D4A;
+      --cream:        #F9F6F1;
+      --white:        #FFFFFF;
+      --text:         #1F1F1F;
+      --text-muted:   #6A6A6A;
+      --border:       #E2DED8;
+      --radius:       10px;
+    }
+
+    /* ─── BASE ───────────────────────────────────────────── */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container   { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .container--sm { max-width: 680px;  margin: 0 auto; padding: 0 24px; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────── */
+    .serif { font-family: 'Playfair Display', serif; }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: #fff;
+    }
+    .btn--gold:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(197,154,101,.35);
+    }
+    .btn--green {
+      background: var(--green);
+      color: #fff;
+    }
+    .btn--green:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(44,89,64,.28);
+    }
+    .btn--lg { font-size: 17px; padding: 18px 40px; }
+    .btn--full { width: 100%; justify-content: center; }
+
+    /* ─── SECTION WRAPPER ─────────────────────────────────── */
+    .section { padding: 80px 0; }
+    .section--white { background: var(--white); }
+    .section--green { background: var(--green); color: #fff; }
+    .section--soft  { background: var(--green-soft); }
+
+    .section__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section__title {
+      font-size: clamp(26px, 3.8vw, 40px);
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: inherit;
+    }
+    .section__subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .section--green .section__subtitle { color: rgba(255,255,255,.7); }
+    .text-center { text-align: center; }
+    .text-center .section__subtitle { margin: 0 auto; }
+
+    /* ─── DIVIDER ─────────────────────────────────────────── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto 48px;
+      max-width: 220px;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: .5;
+    }
+    .ornament__diamond {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════ */
+    .hero {
+      background: var(--green);
+      color: #fff;
+      padding: 72px 0 68px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(197,154,101,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 36px;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(197,154,101,.15);
+      border: 1px solid rgba(197,154,101,.4);
+      color: #D4AA7A;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero__h1 {
+      font-size: clamp(34px, 5.5vw, 58px);
+      font-weight: 500;
+      line-height: 1.18;
+      color: #fff;
+      max-width: 720px;
+      margin: 0 auto 22px;
+    }
+    .hero__h1 em {
+      font-style: italic;
+      color: #D4AA7A;
+    }
+
+    .hero__sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.72);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero__note {
+      font-size: 12px;
+      color: rgba(255,255,255,.38);
+      letter-spacing: .3px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       TRUST BAR
+    ══════════════════════════════════════════════════════ */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .trust-bar__list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .trust-bar__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .trust-bar__item svg {
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       VIDEO SECTION
+    ══════════════════════════════════════════════════════ */
+    .video-wrap {
+      margin-top: 48px;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: var(--green-soft);
+      border: 2px dashed rgba(44,89,64,.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--green);
+      /* SUBSTITUA ESTE BLOCO PELO SEU IFRAME DE VÍDEO QUANDO TIVER */
+    }
+    .video-wrap__icon { font-size: 52px; }
+    .video-wrap__label { font-size: 14px; font-weight: 500; color: var(--text-muted); }
+    /* Para inserir seu vídeo, substitua o div.video-wrap por:
+       <div class="video-wrap" style="padding:0; border:none;">
+         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+           frameborder="0" allowfullscreen></iframe>
+       </div>
+    */
+
+    /* ══════════════════════════════════════════════════════
+       STEPS
+    ══════════════════════════════════════════════════════ */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 36px;
+      margin-top: 56px;
+    }
+    .step {
+      text-align: center;
+      padding: 0 8px;
+    }
+    .step__num {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step__title { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+    .step__text  { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ══════════════════════════════════════════════════════
+       PRODUCTS
+    ══════════════════════════════════════════════════════ */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-top: 48px;
+    }
+    .product {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 18px 24px;
+      text-align: center;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(44,89,64,.1);
+    }
+    .product__emoji { font-size: 38px; margin-bottom: 12px; }
+    .product__name  { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .product__desc  { font-size: 12px; color: var(--text-muted); }
+    .product__badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       OBJECTION BREAKER
+    ══════════════════════════════════════════════════════ */
+    .objection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .objection-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .objection__h2 {
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 500;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .objection__text {
+      font-size: 16px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .compare { display: flex; flex-direction: column; gap: 14px; }
+    .compare__row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 10px;
+    }
+    .compare__row--bad  { background: rgba(255,255,255,.06); }
+    .compare__row--good {
+      background: rgba(197,154,101,.14);
+      border: 1px solid rgba(197,154,101,.3);
+    }
+    .compare__icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .compare__body { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.85); }
+    .compare__body strong { color: #fff; }
+
+    /* ══════════════════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════════════════ */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .testimonial__stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
+    .testimonial__text  {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .testimonial__author { font-size: 13px; font-weight: 600; color: var(--text); }
+    .testimonial__event  { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .testimonial-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 28px;
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       FORM SECTION
+    ══════════════════════════════════════════════════════ */
+    .form-section { background: var(--green-soft); padding: 80px 0; }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 52px 52px;
+      box-shadow: 0 6px 40px rgba(44,89,64,.09);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) { .form-card { padding: 32px 22px; } }
+
+    .form-card__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .form-card__title {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-card__sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group--full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .4px;
+      color: var(--text);
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 13px 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input:focus, select:focus {
+      border-color: var(--green);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(44,89,64,.1);
+    }
+    input::placeholder { color: #C2BEB9; }
+
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--text-muted);
+      pointer-events: none;
+    }
+
+    .form-submit { margin-top: 10px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 18px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .18s, transform .18s, box-shadow .18s;
+      letter-spacing: .3px;
+    }
+    .btn-submit:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(44,89,64,.28);
+    }
+    .btn-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-reassurance {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .form-reassurance svg { color: var(--green); flex-shrink: 0; }
+
+    /* ── Messages ── */
+    .msg-box {
+      display: none;
+      padding: 28px 24px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 0;
+    }
+    .msg-box--low {
+      background: #FFF9F2;
+      border: 1.5px solid #D4AA7A;
+    }
+    .msg-box--low .msg-box__title { color: #8B5E30; }
+    .msg-box__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .msg-box__text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .msg-box__link {
+      display: inline-block;
+      margin-top: 18px;
+      font-weight: 600;
+      color: var(--gold-dark);
+      text-decoration: underline;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .footer__logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: rgba(255,255,255,.85);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .footer__line { font-size: 13px; margin-bottom: 4px; }
+
+    /* ══════════════════════════════════════════════════════
+       FADE-IN ANIMATION
+    ══════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: no-preference) {
+      .js-fade {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity .55s ease, transform .55s ease;
+      }
+      .js-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════
+       RESPONSIVE TWEAKS
+    ══════════════════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .section { padding: 60px 0; }
+      .trust-bar__list { gap: 20px; }
+      .trust-bar__item { font-size: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero__brand">Simetria Eventos</p>
+      <span class="hero__badge">✦ &nbsp;Personalização ao vivo</span>
+      <h1 class="hero__h1">
+        Seus convidados vão guardar<br>
+        <em>para sempre.</em>
+      </h1>
+      <p class="hero__sub">
+        Brindes em couro personalizados ao vivo no seu casamento.
+        Cada convidado escolhe o produto, vê o próprio nome ser gravado — e leva para casa uma memória que não vai para a gaveta.
+      </p>
+      <div class="hero__cta-group">
+        <a href="#formulario" class="btn btn--gold btn--lg">
+          Quero receber meu orçamento
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p class="hero__note">Para casamentos com 50+ convidados · Rio Grande do Sul e Santa Catarina</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST BAR
+  ═══════════════════════════════════════════ -->
+  <div class="trust-bar">
+    <div class="container">
+      <ul class="trust-bar__list">
+        <li class="trust-bar__item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Gravação ao vivo no seu evento
+        </li>
+        <li class="trust-bar__item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Couro legítimo de qualidade
+        </li>
+        <li class="trust-bar__item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Montagem e operação por conta da Simetria
+        </li>
+        <li class="trust-bar__item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Cada peça única, com o nome do convidado
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       VÍDEO
+  ═══════════════════════════════════════════ -->
+  <section class="section section--white">
+    <div class="container--sm">
+      <div class="text-center js-fade">
+        <p class="section__label">Veja como funciona</p>
+        <h2 class="section__title">A personalização ao vivo<br>que vira atração da festa</h2>
+        <p class="section__subtitle">
+          Em segundos, o nome do convidado é gravado em couro. A experiência faz parte do presente.
+        </p>
+      </div>
+
+      <!-- SUBSTITUA PELO SEU VÍDEO QUANDO TIVER -->
+      <div class="video-wrap js-fade" style="margin-top:40px;">
+        <div class="video-wrap__icon">▶</div>
+        <p class="video-wrap__label">Vídeo da personalização ao vivo — em breve</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">
+          Substitua este bloco pelo iframe do seu vídeo do Instagram ou YouTube
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       COMO FUNCIONA
+  ═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center js-fade">
+        <p class="section__label">Como funciona</p>
+        <h2 class="section__title">Simples para você.<br>Inesquecível para os convidados.</h2>
+        <p class="section__subtitle">
+          Cuidamos de tudo — da montagem à operação no dia. Você curte o casamento. A gente trabalha.
+        </p>
+      </div>
+
+      <div class="steps js-fade">
+        <div class="step">
+          <div class="step__num">1</div>
+          <p class="step__title">Montamos a bancada no local</p>
+          <p class="step__text">Chegamos antes da festa, montamos o estúdio de personalização e operamos durante todo o evento. Nenhuma preocupação para você.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <p class="step__title">O convidado escolhe o produto</p>
+          <p class="step__text">Porta-óculos, carteira, bolsa de maquiagem e outros itens em couro. Cada convidado escolhe o que mais combina com ele.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <p class="step__title">O nome é gravado ao vivo</p>
+          <p class="step__text">Diante dos olhos do convidado, o nome é gravado em couro ali na hora. A gravação ao vivo é parte da experiência.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">4</div>
+          <p class="step__title">Uma lembrança que fica</p>
+          <p class="step__text">Item funcional, exclusivo, com o nome gravado. Ele usa. Ele lembra. Lembrar de você com carinho — esse é o objetivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PRODUTOS
+  ═══════════════════════════════════════════ -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="text-center js-fade">
+        <p class="section__label">O que é personalizado</p>
+        <h2 class="section__title">Brindes funcionais.<br>Nenhum vai para a gaveta.</h2>
+        <p class="section__subtitle">
+          Todos os itens são em couro legítimo, gravados ao vivo com o nome de cada convidado.
+        </p>
+      </div>
+
+      <div class="products js-fade">
+        <div class="product">
+          <div class="product__emoji">👓</div>
+          <p class="product__name">Porta-óculos</p>
+          <p class="product__desc">Couro legítimo, uso diário</p>
+          <span class="product__badge">Mais pedido</span>
+        </div>
+        <div class="product">
+          <div class="product__emoji">👜</div>
+          <p class="product__name">Bolsa de Maquiagem</p>
+          <p class="product__desc">Prático e elegante</p>
+        </div>
+        <div class="product">
+          <div class="product__emoji">💼</div>
+          <p class="product__name">Carteira</p>
+          <p class="product__desc">Couro slim, minimalista</p>
+        </div>
+        <div class="product">
+          <div class="product__emoji">🔖</div>
+          <p class="product__name">Porta-cartão</p>
+          <p class="product__desc">Para o dia a dia</p>
+        </div>
+        <div class="product">
+          <div class="product__emoji">✨</div>
+          <p class="product__name">+ Outros itens</p>
+          <p class="product__desc">Catálogo completo via WhatsApp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       QUEBRA DE OBJEÇÃO
+  ═══════════════════════════════════════════ -->
+  <section class="section section--green">
+    <div class="container">
+      <div class="objection-grid js-fade">
+        <div>
+          <p class="section__label" style="color:var(--gold);">A diferença real</p>
+          <h2 class="objection__h2">Chega de lembrancinha que vai direto para o lixo.</h2>
+          <p class="objection__text">
+            Miniatura de velas, potinhos decorativos, sacolinhas de balas. Bonito na mesa. Esquecido em casa — ou nem chega a ir para casa.
+          </p>
+          <p class="objection__text">
+            A Simetria entrega algo diferente: um item de couro com o <strong style="color:#fff">nome do convidado gravado ao vivo, diante dele</strong>. Ele vê acontecer. Ele leva para casa. Ele usa.
+          </p>
+        </div>
+        <div class="compare">
+          <div class="compare__row compare__row--bad">
+            <span class="compare__icon">✗</span>
+            <div class="compare__body">
+              <strong>Lembrancinha tradicional</strong><br>
+              Igual para todo mundo, ignorada, descartada.
+            </div>
+          </div>
+          <div class="compare__row compare__row--good">
+            <span class="compare__icon" style="color:var(--gold);">✓</span>
+            <div class="compare__body">
+              <strong>Simetria</strong><br>
+              Item único, com o nome do convidado, gravado ao vivo na frente dele.
+            </div>
+          </div>
+          <div class="compare__row compare__row--good">
+            <span class="compare__icon" style="color:var(--gold);">✓</span>
+            <div class="compare__body">
+              <strong>Experiência que faz parte da festa</strong><br>
+              A bancada de personalização vira uma das atrações do evento.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DEPOIMENTOS
+       ATENÇÃO: substitua pelos depoimentos reais das suas clientes.
+  ═══════════════════════════════════════════ -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="text-center js-fade">
+        <p class="section__label">O que dizem as noivas</p>
+        <h2 class="section__title">Quem viveu, não esquece.</h2>
+      </div>
+
+      <div class="testimonials js-fade">
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Foi o brinde mais comentado da festa. Cada convidado ficou na fila para ver o próprio nome ser gravado. Uma experiência incrível."</p>
+          <p class="testimonial__author">Mariana S.</p>
+          <p class="testimonial__event">Casamento · Porto Alegre · 2025</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Eu queria algo que as pessoas realmente levassem para casa e usassem. A Simetria entregou exatamente isso — e muito mais."</p>
+          <p class="testimonial__author">Fernanda L.</p>
+          <p class="testimonial__event">Casamento · Caxias do Sul · 2025</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Até hoje meus convidados falam do porta-óculos com o nome gravado. Valeu cada centavo — e a organização da Simetria foi impecável."</p>
+          <p class="testimonial__author">Camila R.</p>
+          <p class="testimonial__event">Casamento · Florianópolis · 2025</p>
+        </div>
+      </div>
+      <!-- SUBSTITUA OS DEPOIMENTOS ACIMA PELOS REAIS DAS SUAS CLIENTES -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FORMULÁRIO
+  ═══════════════════════════════════════════ -->
+  <section class="form-section" id="formulario">
+    <div class="container">
+      <div class="text-center js-fade" style="margin-bottom:40px;">
+        <p class="section__label">Orçamento sem compromisso</p>
+        <h2 class="section__title" style="color:var(--green);">Vamos conversar<br>sobre o seu casamento?</h2>
+        <p class="section__subtitle">
+          Preencha os campos abaixo e você será redirecionada para o nosso WhatsApp com tudo pronto para começarmos.
+        </p>
+      </div>
+
+      <div class="form-card js-fade">
+        <p class="form-card__eyebrow">Solicite seu orçamento</p>
+        <h3 class="form-card__title">Menos de 1 minuto para preencher.</h3>
+        <p class="form-card__sub">Todos os campos são obrigatórios.</p>
+
+        <form id="lead-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp com DDD</label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="(51) 9 9999-9999" autocomplete="tel" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipo">Tipo de evento</label>
+              <div class="select-wrap">
+                <select id="tipo" name="tipo" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="Casamento">Casamento</option>
+                  <option value="Formatura">Formatura</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="data">Data prevista do evento</label>
+              <input type="text" id="data" name="data" placeholder="Ex: Outubro de 2026" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="convidados">Número aproximado de convidados</label>
+            <div class="select-wrap">
+              <select id="convidados" name="convidados" required>
+                <option value="" disabled selected>Selecione a faixa</option>
+                <option value="até 49">Até 49 convidados</option>
+                <option value="50 a 100">50 a 100 convidados</option>
+                <option value="100 a 200">100 a 200 convidados</option>
+                <option value="200 a 400">200 a 400 convidados</option>
+                <option value="mais de 400">Mais de 400 convidados</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-submit" id="submit-btn">
+              <span id="btn-text">Quero meu orçamento via WhatsApp</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="form-reassurance">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+            </svg>
+            Seus dados são usados apenas para entrar em contato com você.
+          </div>
+        </form>
+
+        <!-- Mensagem para leads com menos de 50 convidados -->
+        <div class="msg-box msg-box--low" id="msg-low">
+          <p class="msg-box__title">Obrigada pelo interesse na Simetria! 🌿</p>
+          <p class="msg-box__text">
+            No momento, nossos pacotes são formatados para eventos com <strong>50 ou mais convidados</strong>.
+            Mas fique à vontade para entrar em contato — às vezes conseguimos encontrar uma solução juntos.
+          </p>
+          <a class="msg-box__link"
+             href="https://wa.me/5551858822767?text=Ol%C3%A1!+Gostaria+de+conversar+sobre+brindes+personalizados+para+meu+evento."
+             target="_blank" rel="noopener">
+            Falar com a Simetria no WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer__logo">S I M E T R I A</p>
+    <p class="footer__line">Brindes personalizados ao vivo para casamentos e formaturas</p>
+    <p class="footer__line">Rio Grande do Sul · Santa Catarina</p>
+    <p class="footer__line" style="margin-top:10px;">
+      <a href="https://www.instagram.com/simetria.evento/" target="_blank" rel="noopener"
+         style="color:rgba(255,255,255,.5); text-decoration:none;">@simetria.evento</a>
+    </p>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
+  <script>
+    /* ── Scroll fade-in ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.js-fade').forEach(el => observer.observe(el));
+
+
+    /* ── Phone mask ── */
+    document.getElementById('whatsapp').addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').substring(0, 11);
+      if (v.length > 10) {
+        v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      } else if (v.length > 6) {
+        v = v.replace(/^(\d{2})(\d{4,5})(\d{0,4})/, '($1) $2-$3');
+      } else if (v.length > 2) {
+        v = v.replace(/^(\d{2})(\d+)/, '($1) $2');
+      } else if (v.length > 0) {
+        v = v.replace(/^(\d*)/, '($1');
+      }
+      this.value = v;
+    });
+
+
+    /* ── Form submit ── */
+    document.getElementById('lead-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome       = document.getElementById('nome').value.trim();
+      const whatsapp   = document.getElementById('whatsapp').value.trim();
+      const tipo       = document.getElementById('tipo').value;
+      const data       = document.getElementById('data').value.trim();
+      const convidados = document.getElementById('convidados').value;
+
+      /* Validação básica */
+      if (!nome || !whatsapp || !tipo || !data || !convidados) {
+        alert('Por favor, preencha todos os campos antes de continuar.');
+        return;
+      }
+
+      /* Filtro MQL — menos de 50 convidados */
+      if (convidados === 'até 49') {
+        document.getElementById('lead-form').style.display = 'none';
+        const msgEl = document.getElementById('msg-low');
+        msgEl.style.display = 'block';
+
+        /* Evento de conversão para o Pixel (lead não qualificado) */
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Lead', { content_name: 'lead_nao_qualificado' });
+        }
+        return;
+      }
+
+      /* Mensagem pré-formatada para o WhatsApp */
+      const mensagem = `Olá. Acabei de preencher o formulário da Simetria. Sou ${nome} e meu evento é em ${data} com ${convidados} convidados (${tipo}). Gostaria de receber o orçamento.`;
+
+      const numero   = '5551858822767'; // WhatsApp da Simetria
+      const waURL    = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+      /* Evento de conversão para o Pixel (lead qualificado) */
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: 'lead_qualificado' });
+      }
+
+      /* Feedback visual no botão */
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      document.getElementById('btn-text').textContent = 'Redirecionando...';
+
+      /* Pequeno delay para o Pixel disparar antes do redirect */
+      setTimeout(function () {
+        window.location.href = waURL;
+      }, 400);
+    });
+  </script>
+
+</body>
+</html>
