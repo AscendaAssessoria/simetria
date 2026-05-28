@@ -19,7 +19,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── RESET ─────────────────────────────────────────── */
@@ -27,45 +27,54 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     img { max-width: 100%; display: block; }
 
-    /* ─── TOKENS ─────────────────────────────────────────── */
+    /* ─── TOKENS — Identidade Visual Simetria ───────────────
+       Paleta cítrica acinzentada · Guia de Marca 2026
+    ──────────────────────────────────────────────────────── */
     :root {
-      --green:        #2C5940;
-      --green-dark:   #1E3F2C;
-      --green-mid:    #3A7050;
-      --green-soft:   #EBF2EE;
-      --gold:         #C59A65;
-      --gold-dark:    #A87D4A;
-      --cream:        #F9F6F1;
+      --green:        #076D6B;   /* teal — cor principal da marca      */
+      --green-dark:   #055452;   /* teal escuro — hover / sombra       */
+      --green-mid:    #0A8280;   /* teal médio — estados ativos        */
+      --green-soft:   #E2EEEE;   /* teal suave — fundos secundários    */
+      --gold:         #B8976A;   /* ouro quente — "detalhes ouro"      */
+      --gold-dark:    #9A7A52;   /* ouro escuro — hover                */
+      --cream:        #EDE6DA;   /* creme — fundo principal da marca   */
+      --warm-gray:    #D0C8BB;   /* cinza quente — cor de apoio        */
+      --graphite:     #342F29;   /* grafite — cor escura da marca      */
       --white:        #FFFFFF;
-      --text:         #1F1F1F;
-      --text-muted:   #6A6A6A;
-      --border:       #E2DED8;
+      --text:         #342F29;   /* grafite para texto principal       */
+      --text-muted:   #7C7469;   /* versão atenuada do grafite         */
+      --border:       #D0C8BB;   /* cinza quente para bordas           */
       --radius:       10px;
     }
 
     /* ─── BASE ───────────────────────────────────────────── */
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: var(--cream);
       color: var(--text);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      font-size: 15px;
     }
 
     .container   { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     .container--sm { max-width: 680px;  margin: 0 auto; padding: 0 24px; }
 
     /* ─── TYPOGRAPHY ─────────────────────────────────────── */
-    .serif { font-family: 'Playfair Display', serif; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
 
-    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.22;
+      letter-spacing: 0.01em;
+    }
 
     /* ─── BUTTONS ─────────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 15px;
       padding: 15px 32px;
@@ -105,12 +114,13 @@
     .section--soft  { background: var(--green-soft); }
 
     .section__label {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 3px;
+      letter-spacing: 3.5px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--green);
       margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
     }
     .section__title {
       font-size: clamp(26px, 3.8vw, 40px);
@@ -156,7 +166,7 @@
        HERO
     ══════════════════════════════════════════════════════ */
     .hero {
-      background: var(--green);
+      background: linear-gradient(160deg, var(--green-dark) 0%, var(--green) 60%, var(--green-mid) 100%);
       color: #fff;
       padding: 72px 0 68px;
       text-align: center;
@@ -167,12 +177,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(197,154,101,.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 50% at 50% 110%, rgba(184,151,106,.18) 0%, transparent 65%);
       pointer-events: none;
     }
 
     .hero__brand {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 13px;
       letter-spacing: 5px;
       text-transform: uppercase;
@@ -304,7 +314,7 @@
       border-radius: 50%;
       background: var(--green);
       color: #fff;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
       font-weight: 500;
       display: flex;
@@ -432,7 +442,7 @@
     /* ══════════════════════════════════════════════════════
        FORM SECTION
     ══════════════════════════════════════════════════════ */
-    .form-section { background: var(--green-soft); padding: 80px 0; }
+    .form-section { background: var(--warm-gray); padding: 80px 0; }
 
     .form-card {
       background: var(--white);
@@ -492,10 +502,10 @@
     select {
       width: 100%;
       padding: 13px 15px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
       color: var(--text);
-      background: var(--cream);
+      background: #F7F3EE;
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       outline: none;
@@ -529,7 +539,7 @@
       width: 100%;
       background: var(--green);
       color: #fff;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 17px;
       font-weight: 600;
       padding: 18px;
@@ -579,7 +589,7 @@
     }
     .msg-box--low .msg-box__title { color: #8B5E30; }
     .msg-box__title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 500;
       margin-bottom: 10px;
@@ -607,7 +617,7 @@
       padding: 40px 24px;
     }
     .footer__logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       color: rgba(255,255,255,.85);
       letter-spacing: 2px;
