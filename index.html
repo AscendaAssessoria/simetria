@@ -1054,8 +1054,8 @@
       /* Mensagem pré-formatada para o WhatsApp */
       const mensagem = `Olá. Acabei de preencher o formulário da Simetria. Sou ${nome} e meu evento é em ${data} com ${convidados} convidados (${tipo}). Gostaria de receber o orçamento.`;
 
-      const numero   = '555185882767'; // WhatsApp da Simetria
-      const waURL    = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+      const numero = '555185882767'; // WhatsApp da Simetria
+      const waURL  = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
       /* Evento de conversão para o Pixel (lead qualificado) */
       if (typeof fbq !== 'undefined') {
@@ -1065,12 +1065,37 @@
       /* Feedback visual no botão */
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
-      document.getElementById('btn-text').textContent = 'Redirecionando...';
+      document.getElementById('btn-text').textContent = 'Enviando...';
 
-      /* Pequeno delay para o Pixel disparar antes do redirect */
-      setTimeout(function () {
+      /* Payload para o webhook */
+      const payload = {
+        nome:       nome,
+        whatsapp:   whatsapp,
+        tipo_evento: tipo,
+        data_evento: data,
+        convidados: convidados,
+        origem:     'landing-page-simetria',
+        timestamp:  new Date().toISOString()
+      };
+
+      /* Envia para o webhook e redireciona para o WhatsApp
+         O redirect acontece independente do resultado do webhook (timeout de 2s) */
+      const WEBHOOK_URL = 'https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/5e740a07-2e3b-4af4-81a4-37dd6c6048d3/3c7ae87f-cbdb-4883-89d2-b3996be81109';
+
+      const webhookPromise = fetch(WEBHOOK_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+
+      const timeoutPromise = new Promise(function (resolve) {
+        setTimeout(resolve, 2000); // garante redirect mesmo se webhook demorar
+      });
+
+      Promise.race([webhookPromise, timeoutPromise]).finally(function () {
+        document.getElementById('btn-text').textContent = 'Redirecionando...';
         window.location.href = waURL;
-      }, 400);
+      });
     });
   </script>
 
