@@ -965,6 +965,11 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label for="cidade">Cidade e Estado do Evento</label>
+            <input type="text" id="cidade" name="cidade" placeholder="Ex: Porto Alegre - RS" required />
+          </div>
+
           <div class="form-submit">
             <button type="submit" class="btn-submit" id="submit-btn">
               <span id="btn-text">Quero meu orçamento via WhatsApp</span>
@@ -1044,15 +1049,16 @@
       const tipo       = document.getElementById('tipo').value;
       const data       = document.getElementById('data').value.trim();
       const convidados = document.getElementById('convidados').value;
+      const cidade     = document.getElementById('cidade').value.trim();
 
       /* Validação básica */
-      if (!nome || !whatsapp || !tipo || !data || !convidados) {
+      if (!nome || !whatsapp || !tipo || !data || !convidados || !cidade) {
         alert('Por favor, preencha todos os campos antes de continuar.');
         return;
       }
 
       /* Mensagem pré-formatada para o WhatsApp */
-      const mensagem = `Olá. Acabei de preencher o formulário da Simetria. Sou ${nome} e meu evento é em ${data} com ${convidados} convidados (${tipo}). Gostaria de receber o orçamento.`;
+      const mensagem = `Olá. Acabei de preencher o formulário da Simetria. Sou ${nome} e meu evento é em ${data} com ${convidados} convidados (${tipo}), em ${cidade}. Gostaria de receber o orçamento.`;
 
       const numero = '555185882767'; // WhatsApp da Simetria
       const waURL  = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
@@ -1073,8 +1079,9 @@
         whatsapp:   whatsapp,
         tipo_evento: tipo,
         data_evento: data,
-        convidados: convidados,
-        origem:     'landing-page-simetria',
+        convidados:    convidados,
+        cidade_estado: cidade,
+        origem:        'landing-page-simetria',
         timestamp:  new Date().toISOString()
       };
 
