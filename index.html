@@ -517,6 +517,35 @@
     }
     input::placeholder { color: #C2BEB9; }
 
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #D0C8BB;
+      border-radius: var(--radius);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      background: var(--cream);
+      resize: none;
+      box-sizing: border-box;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    textarea:focus {
+      border-color: var(--green);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(44,89,64,.1);
+      outline: none;
+    }
+    textarea::placeholder { color: #C2BEB9; }
+
+    .char-counter {
+      display: block;
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
     .select-wrap { position: relative; }
     .select-wrap::after {
       content: '';
@@ -952,22 +981,18 @@
 
           <div class="form-group">
             <label for="convidados">Número aproximado de convidados</label>
-            <div class="select-wrap">
-              <select id="convidados" name="convidados" required>
-                <option value="" disabled selected>Selecione a faixa</option>
-                <option value="Evento sem convidados">Evento sem convidados</option>
-                <option value="até 49">Até 49 convidados</option>
-                <option value="50 a 100">50 a 100 convidados</option>
-                <option value="100 a 200">100 a 200 convidados</option>
-                <option value="200 a 400">200 a 400 convidados</option>
-                <option value="mais de 400">Mais de 400 convidados</option>
-              </select>
-            </div>
+            <input type="text" id="convidados" name="convidados" placeholder="Ex: cerca de 150 convidados" required />
           </div>
 
           <div class="form-group">
             <label for="cidade">Cidade e Estado do Evento</label>
             <input type="text" id="cidade" name="cidade" placeholder="Ex: Porto Alegre - RS" required />
+          </div>
+
+          <div class="form-group">
+            <label for="detalhes">Dê mais detalhes sobre o seu evento</label>
+            <textarea id="detalhes" name="detalhes" placeholder="Ex: Casamento ao ar livre, noiva quer personalizar porta-óculos e carteiras para 120 convidados..." maxlength="300" rows="4"></textarea>
+            <span class="char-counter"><span id="char-count">0</span>/300 caracteres</span>
           </div>
 
           <div class="form-submit">
@@ -1024,6 +1049,11 @@
     document.querySelectorAll('.js-fade').forEach(el => observer.observe(el));
 
 
+    /* ── Contador de caracteres do textarea ── */
+    document.getElementById('detalhes').addEventListener('input', function () {
+      document.getElementById('char-count').textContent = this.value.length;
+    });
+
     /* ── Phone mask ── */
     document.getElementById('whatsapp').addEventListener('input', function () {
       let v = this.value.replace(/\D/g, '').substring(0, 11);
@@ -1048,8 +1078,9 @@
       const whatsapp   = document.getElementById('whatsapp').value.trim();
       const tipo       = document.getElementById('tipo').value;
       const data       = document.getElementById('data').value.trim();
-      const convidados = document.getElementById('convidados').value;
+      const convidados = document.getElementById('convidados').value.trim();
       const cidade     = document.getElementById('cidade').value.trim();
+      const detalhes   = document.getElementById('detalhes').value.trim();
 
       /* Validação básica */
       if (!nome || !whatsapp || !tipo || !data || !convidados || !cidade) {
@@ -1058,7 +1089,8 @@
       }
 
       /* Mensagem pré-formatada para o WhatsApp */
-      const mensagem = `Olá. Acabei de preencher o formulário da Simetria. Sou ${nome} e meu evento é em ${data} com ${convidados} convidados (${tipo}), em ${cidade}. Gostaria de receber o orçamento.`;
+      const extras    = detalhes ? ` Detalhes: ${detalhes}` : '';
+      const mensagem = `Olá. Acabei de preencher o formulário da Simetria. Sou ${nome} e meu evento é em ${data} com ${convidados} (${tipo}), em ${cidade}.${extras} Gostaria de receber o orçamento.`;
 
       const numero = '555185882767'; // WhatsApp da Simetria
       const waURL  = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
@@ -1081,6 +1113,7 @@
         data_evento: data,
         convidados:    convidados,
         cidade_estado: cidade,
+        detalhes:      detalhes,
         origem:        'landing-page-simetria',
         timestamp:  new Date().toISOString()
       };
